@@ -1,0 +1,208 @@
+/* Tailwind-based Dark Mode First UI Theme for RecruitIntel */
+
+/* =======================
+   🌙 COLOR VARIABLES
+========================== */
+:root {
+  --color-bg: #0d1117;
+  --color-surface: #161b22;
+  --color-text: #e6edf3;
+  --color-accent: #1f6feb;
+  --color-success: #2ea043;
+  --color-warning: #e3b341;
+  --color-danger: #f85149;
+  --color-border: #30363d;
+}
+
+/* =======================
+   🔋 DIMENSIONS & RESPONSIVENESS
+========================== */
+html, body {
+  width: 100%;
+  max-width: 440px;
+  min-height: 500px;
+  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 400px) {
+  .container {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .sidebar {
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 12px;
+  }
+}
+
+/* =======================
+   🧱 LAYOUT
+========================== */
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--color-surface);
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.sidebar {
+  min-width: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.main-panel {
+  flex-grow: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.hidden { display: none; }
+.active-tab { display: block; }
+
+/* =======================
+   🔋 TYPOGRAPHY
+========================== */
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* =======================
+   🔧 COMPONENTS
+========================== */
+.button-primary {
+  background-color: var(--color-accent);
+  color: white;
+  border-radius: 6px;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.button-primary:hover {
+  background-color: #388bfd;
+}
+.button-primary[title]::after {
+  content: attr(title);
+  display: none;
+  position: absolute;
+  background: #22272e;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.textarea {
+  background-color: #22272e;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  border-radius: 6px;
+  padding: 8px;
+  width: 100%;
+  resize: vertical;
+  font-family: monospace;
+}
+
+.trust-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-success));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+
+.meter-container {
+  background: var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 10px;
+  margin-top: 8px;
+}
+
+.meter-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--color-success), var(--color-warning), var(--color-danger));
+  transition: width 0.4s ease-in-out;
+}
+
+.highlight-warning {
+  background-color: rgba(255, 193, 7, 0.2);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.history-entry {
+  background-color: #1e252e;
+  border-left: 4px solid var(--color-warning);
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+input, textarea {
+  background-color: #22272e;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  border-radius: 6px;
+  padding: 8px;
+  width: 100%;
+}
+
+label {
+  margin-top: 12px;
+  display: block;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.tab-content {
+  display: none;
+}
+.tab-content.active-tab {
+  display: block;
+}
+
+html, body {
+  width: 440px;         /* ✅ make wider */
+  height: 600px;        /* ✅ increase height */
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

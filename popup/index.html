@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>RecruitIntel Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&family=Space+Grotesk&display=swap">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+        background: #0d1117;
+        color: #e6edf3;
+      }
+
+      .container {
+        display: flex;
+        height: 100vh;
+        max-width: 1000px;
+        margin: auto;
+        background: #161b22;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      }
+
+      .sidebar {
+        width: 200px;
+        background: #0d1117;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        border-right: 1px solid #30363d;
+      }
+
+      .sidebar button {
+        background: #1f6feb;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .main {
+        flex: 1;
+        padding: 24px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        background: #1e252e;
+        border: 1px solid #30363d;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      }
+
+      .card textarea {
+        width: 100%;
+        background: #0d1117;
+        border: 1px solid #30363d;
+        color: #e6edf3;
+        border-radius: 8px;
+        padding: 12px;
+        font-family: monospace;
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .card .button-primary {
+        background: #1f6feb;
+        color: white;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 8px;
+        margin-top: 10px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .meter {
+        height: 12px;
+        background: linear-gradient(to right, #2ea043, #e3b341, #f85149);
+        border-radius: 6px;
+        margin-top: 10px;
+        width: 100%;
+      }
+
+      .label {
+        font-weight: 500;
+        margin-bottom: 6px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <button>🔍 Analysis</button>
+        <button>📜 History</button>
+        <button>⚙️ Settings</button>
+      </div>
+      <div class="main">
+        <div class="card">
+          <h3>🧠 GPT Message Checker</h3>
+          <textarea placeholder="Paste recruiter message here..."></textarea>
+          <button class="button-primary">Analyze</button>
+        </div>
+
+        <div class="card">
+          <span class="label">Risk Score</span>
+          <div class="meter" style="width: 75%;"></div>
+        </div>
+
+        <div class="card">
+          <span class="label">AI Detection Certainty</span>
+          <p>Confidence: 88%</p>
+        </div>
+
+        <div class="card">
+          <span class="label">Red Flags</span>
+          <ul>
+            <li>🚩 Generic Greeting</li>
+            <li>🚩 Missing Company Info</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Reporting</h4>
+          <p>Quickly submit recruiter scam reports</p>
+          <button class="button-primary">Report</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
