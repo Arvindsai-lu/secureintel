@@ -2,15 +2,15 @@
   "manifest_version": 3,
   "name": "RecruitIntel",
   "version": "1.0",
-  "description": "Verify recruiters and detect ghost jobs on LinkedIn.",
+  "description": "Analyze recruiter credibility and detect ghost job scams on LinkedIn.",
   "icons": {
     "16": "icon.png",
     "48": "icon.png",
     "128": "icon.png"
   },
   "permissions": [
-    "activeTab",
     "storage",
+    "activeTab",
     "scripting"
   ],
   "host_permissions": [
@@ -25,10 +25,14 @@
     },
     "default_title": "RecruitIntel Analyzer"
   },
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
-      "matches": ["https://www.linkedin.com/in/*"],
-      "js": ["content/inject.js"]
+      "matches": ["https://www.linkedin.com/*"],
+      "js": ["content/inject.js"],
+      "run_at": "document_idle"
     }
   ],
   "web_accessible_resources": [
@@ -36,5 +40,6 @@
       "resources": ["icon.png"],
       "matches": ["<all_urls>"]
     }
-  ]
+  ],
+  "options_page": "popup/settings.html"
 }

@@ -18,10 +18,9 @@
    🔋 DIMENSIONS & RESPONSIVENESS
 ========================== */
 html, body {
-  width: 100%;
-  max-width: 440px;
-  min-height: 500px;
-  overflow-x: hidden;
+  width: 400px;
+  height: 600px;
+  overflow: hidden; /* ✅ prevents scrollbar */
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: 'Inter', sans-serif;
@@ -55,6 +54,7 @@ html, body {
   background-color: var(--color-surface);
   box-sizing: border-box;
   height: 100%;
+  overflow: hidden;
 }
 
 .sidebar {
@@ -70,6 +70,7 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  overflow: hidden;
 }
 
 .card {
@@ -106,17 +107,6 @@ h1, h2, h3 {
 }
 .button-primary:hover {
   background-color: #388bfd;
-}
-.button-primary[title]::after {
-  content: attr(title);
-  display: none;
-  position: absolute;
-  background: #22272e;
-  color: #fff;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  white-space: nowrap;
 }
 
 .textarea {
@@ -193,16 +183,7 @@ label {
   display: block;
 }
 
-html, body {
-  width: 440px;         /* ✅ make wider */
-  height: 600px;        /* ✅ increase height */
-  max-width: 100%;
-  overflow-x: hidden;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+#panel-history .button-primary {
+  width: 100%;
+  margin-bottom: 8px;
 }

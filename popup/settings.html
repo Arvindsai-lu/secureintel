@@ -1,0 +1,41 @@
+<!-- popup/settings.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RecruitIntel Settings</title>
+  <style>
+    body {
+      background: #0d1117;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      padding: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>⚙️ Settings</h2>
+  <label><input type="checkbox" id="autoSaveToggle"> Auto-save analysis to history</label>
+  <label><input type="checkbox" id="colorBlindMode"> Enable color-blind mode</label>
+  <label><input type="checkbox" id="dataConsent"> I consent to local storage of analysis</label>
+
+  <script>
+    chrome.storage.sync.get(["autoSave", "colorBlindMode", "dataConsent"], (data) => {
+      document.getElementById("autoSaveToggle").checked = data.autoSave ?? true;
+      document.getElementById("colorBlindMode").checked = data.colorBlindMode ?? false;
+      document.getElementById("dataConsent").checked = data.dataConsent ?? false;
+    });
+
+    ["autoSaveToggle", "colorBlindMode", "dataConsent"].forEach(id => {
+      document.getElementById(id).addEventListener("change", () => {
+        chrome.storage.sync.set({
+          [id.replace("Toggle", "")]: document.getElementById(id).checked
+        });
+      });
+    });
+  </script>
+</body>
+</html>
